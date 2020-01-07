@@ -1,0 +1,27 @@
+version: "3.7"
+
+networks:
+  lucene-testcase-net:
+    ipam:
+      config:
+        - subnet: 172.24.0.0/24
+
+volumes:
+  lucene-testcase-db-volume:
+
+services:
+  lucene-testcase-db:
+    container_name: lucene-testcase-db
+    image: postgres:12.1-alpine
+    networks:
+      lucene-testcase-net:
+        ipv4_address: 172.24.0.10
+    expose:
+      - 5432
+    environment:
+      POSTGRES_DB: testcasedb
+      POSTGRES_USER: testcasedbuser
+      POSTGRES_PASSWORD: testcasedbpassword
+    volumes:
+      - lucene-testcase-db-volume:/var/lib/postgresql/data
+    restart: "no"
