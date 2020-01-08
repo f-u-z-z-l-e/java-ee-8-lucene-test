@@ -1,6 +1,8 @@
 package ch.fuzzle.lucenetest.identity;
 
+import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.TermVector;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
 import javax.persistence.*;
@@ -19,8 +21,10 @@ public class Person implements Serializable {
     @SequenceGenerator(name = "PersonSequence", sequenceName = "person_seq", allocationSize = 1)
     private Integer id;
 
+    @Field(termVector = TermVector.YES)
     private String firstname;
 
+    @Field(termVector = TermVector.YES)
     private String lastname;
 
     public Person() {
