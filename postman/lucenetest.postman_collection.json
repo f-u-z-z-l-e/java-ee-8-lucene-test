@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "c9071319-d1d1-4a40-8226-e01246ccff8b",
+		"name": "lucenetest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create person",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstname\": \"John\",\n\t\"lastname\": \"Rambo\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/lucenetest/person/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"lucenetest",
+						"person",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get person",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/lucenetest/person/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"lucenetest",
+						"person",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find person by firstname",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/lucenetest/person/search/jon",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"lucenetest",
+						"person",
+						"search",
+						"jon"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e39fa5a0-5492-464b-86f6-33820f8dbcd2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "434a441f-b596-4b64-bffb-c05782b93944",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
