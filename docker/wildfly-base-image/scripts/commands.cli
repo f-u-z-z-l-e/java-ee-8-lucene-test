@@ -1,0 +1,11 @@
+# Mark the commands below to be run as a batch
+batch
+
+# Add PostgreSQL driver
+/subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgresql",driver-class-name=org.postgresql.Driver)
+
+# Add the datasource
+data-source add --jndi-name=java:jboss/datasources/postgresDS --name=postgresDS --connection-url=jdbc:postgresql://172.24.0.10:5432/testcasedb --driver-name=postgres --user-name=testcasedbuser --password=testcasedbpassword
+
+# Execute the batch
+run-batch

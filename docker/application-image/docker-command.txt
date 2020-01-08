@@ -1,0 +1,3 @@
+## build ##
+docker build --rm --tag lucene-test-app .
+

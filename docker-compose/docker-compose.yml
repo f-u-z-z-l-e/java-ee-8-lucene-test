@@ -25,3 +25,11 @@ services:
     volumes:
       - lucene-testcase-db-volume:/var/lib/postgresql/data
     restart: "no"
+
+  lucene-testcase-app-1:
+    container_name: lucene-testcase-app-1
+#    image: wildfly-config-cli
+    image: lucene-test-app:latest
+    networks:
+      lucene-testcase-net:
+        ipv4_address: 172.24.0.20

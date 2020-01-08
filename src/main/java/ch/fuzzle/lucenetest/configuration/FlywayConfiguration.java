@@ -21,7 +21,7 @@ public class FlywayConfiguration {
     @PostConstruct
     public void initFlyway() {
         Flyway flyway = Flyway.configure().dataSource(dataSource).load();
-        int numberOfMigrations = flyway.migrate();
+        flyway.migrate();
     }
 
 }

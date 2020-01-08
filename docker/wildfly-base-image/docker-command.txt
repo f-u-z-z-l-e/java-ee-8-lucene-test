@@ -1,0 +1,5 @@
+## build ##
+docker build --rm --tag wildfly-config-cli .
+
+## run ##
+docker run -it --rm wildfly-config-cli
