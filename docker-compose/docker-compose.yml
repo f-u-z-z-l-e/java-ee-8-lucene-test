@@ -32,3 +32,12 @@ services:
     networks:
       lucene-testcase-net:
         ipv4_address: 172.24.0.20
+    restart: "no"
+
+  lucene-testcase-app-2:
+    container_name: lucene-testcase-app-2
+    image: lucene-test-app:latest
+    networks:
+      lucene-testcase-net:
+        ipv4_address: 172.24.0.21
+    restart: "no"
