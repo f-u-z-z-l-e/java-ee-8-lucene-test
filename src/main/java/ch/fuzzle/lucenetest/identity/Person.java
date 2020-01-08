@@ -1,11 +1,14 @@
 package ch.fuzzle.lucenetest.identity;
 
+import org.hibernate.search.annotations.Indexed;
+
 import javax.json.bind.annotation.JsonbPropertyOrder;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Indexed
 @Table(name = "person")
 @JsonbPropertyOrder({"id", "firstname", "lastname"})
 public class Person implements Serializable {
