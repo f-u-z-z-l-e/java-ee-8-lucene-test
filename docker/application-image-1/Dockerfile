@@ -1,0 +1,5 @@
+FROM wildfly-config-cli:latest
+
+ADD lucenetest.war /opt/jboss/wildfly/standalone/deployments/
+
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-c", "standalone-ha.xml", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]

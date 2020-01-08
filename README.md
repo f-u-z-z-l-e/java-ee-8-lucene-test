@@ -8,7 +8,7 @@ to your Downloads directory.
 
 start wildfly locally with
 
-* **$WILDFLY_HOME/bin/standalone.sh**
+* **$WILDFLY_HOME/bin/standalone.sh -server-config=standalone-ha.xml**
 * **$WILDFLY_HOME/bin/jboss-cli.sh --connect controller=127.0.0.1**
 * ```module add --name=org.postgresql --resources=~/Downloads/postgresql-42.2.9.jar --dependencies=javax.api,javax.transaction.api```
 * ```/subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgresql",driver-class-name=org.postgresql.Driver)```

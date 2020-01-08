@@ -28,7 +28,6 @@ services:
 
   lucene-testcase-app-1:
     container_name: lucene-testcase-app-1
-#    image: wildfly-config-cli
     image: lucene-test-app:latest
     networks:
       lucene-testcase-net:
