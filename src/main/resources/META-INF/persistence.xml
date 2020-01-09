@@ -9,11 +9,11 @@
         <class>ch.fuzzle.lucenetest.identity.Person</class>
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="none"/>
-            <property name="hibernate.search.default.directory_provider" value="filesystem-master"/>
+            <property name="hibernate.search.default.directory_provider" value="${directory.provider}"/>
             <property name="hibernate.search.default.sourceBase" value="/mnt/master-index"/>
             <property name="hibernate.search.default.indexBase" value="/local-index"/>
             <property name="hibernate.search.default.refresh" value="60"/>
-            <property name="hibernate.search.default.worker.backend" value="jgroupsMaster"/>
+            <property name="hibernate.search.default.worker.backend" value="${worker.backend}"/>
             <property name="hibernate.search.error_handler" value="log"/>
             <property name="hibernate.show_sql" value="true"/>
         </properties>
