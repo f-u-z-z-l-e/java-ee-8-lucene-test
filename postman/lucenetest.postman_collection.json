@@ -21,12 +21,12 @@
 					"raw": "{\n\t\"firstname\": \"John\",\n\t\"lastname\": \"Rambo\"\n}"
 				},
 				"url": {
-					"raw": "{{host}}/lucenetest/person/",
+					"raw": "{{host}}/{{context}}/person/",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"lucenetest",
+						"{{context}}",
 						"person",
 						""
 					]
@@ -40,12 +40,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/lucenetest/person/1",
+					"raw": "{{host}}/{{context}}/person/1",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"lucenetest",
+						"{{context}}",
 						"person",
 						"1"
 					]
@@ -59,12 +59,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/lucenetest/person/search/jon",
+					"raw": "{{host}}/{{context}}/person/search/jon",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"lucenetest",
+						"{{context}}",
 						"person",
 						"search",
 						"jon"
