@@ -26,14 +26,15 @@ public class PersonRepository {
         return em.find(Person.class, personId);
     }
 
-    public List<Person> findByFirstname(String firstname) {
+    public List<Person> findByname(String name) {
         Query fuzzyQuery = getQueryBuilder()
                 .keyword()
                 .fuzzy()
                 .withEditDistanceUpTo(2)
                 .withPrefixLength(0)
                 .onField("firstname")
-                .matching(firstname)
+                .andField("lastname")
+                .matching(name)
                 .createQuery();
 
         List<Person> results = getJpaQuery(fuzzyQuery).getResultList();
@@ -52,5 +53,9 @@ public class PersonRepository {
                 .buildQueryBuilder()
                 .forEntity(Person.class)
                 .get();
+    }
+
+    public void removePerson(int id) {
+        em.createNativeQuery("delete from person where id = " + id).executeUpdate();
     }
 }

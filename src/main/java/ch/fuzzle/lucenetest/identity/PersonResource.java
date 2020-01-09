@@ -44,11 +44,18 @@ public class PersonResource {
         return Response.created(location).build();
     }
 
+    @DELETE
+    @Path("/{id}")
+    public Response deletePersonById(@PathParam("id") int id) {
+        repository.removePerson(id);
+        return Response.ok().build();
+    }
+
     @GET
-    @Path("/search/{firstname}")
+    @Path("/search/{name}")
     @Produces(APPLICATION_JSON)
-    public Response getPersonByFirstname(@PathParam("firstname") String firstname) {
-        List<Person> persons = repository.findByFirstname(firstname);
+    public Response searchPersonByName(@PathParam("name") String name) {
+        List<Person> persons = repository.findByname(name);
 
         if (persons == null || persons.isEmpty()) {
             return Response.ok(new ArrayList<Person>()).build();
@@ -56,4 +63,5 @@ public class PersonResource {
 
         return Response.ok(persons).build();
     }
+
 }
