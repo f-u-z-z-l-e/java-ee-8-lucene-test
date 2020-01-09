@@ -1,0 +1,16 @@
+<!--<server-provisioning xmlns="urn:wildfly:server-provisioning:1.1">-->
+<server-provisioning xmlns="urn:wildfly:server-provisioning:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="urn:wildfly:server-provisioning:1.2 https://raw.githubusercontent.com/wildfly/wildfly-build-tools/master/provisioning/src/main/resources/wildfly-server-provisioning-1_2.xsd">
+    <feature-packs>
+        <feature-pack
+                groupId="org.hibernate"
+                artifactId="hibernate-search-jbossmodules-orm"
+                version="5.11.4.Final"/>
+        <feature-pack
+                groupId="org.wildfly"
+                artifactId="wildfly-feature-pack"
+                version="18.0.1.Final"/>
+    </feature-packs>
+</server-provisioning>
+
+

@@ -8,6 +8,7 @@ networks:
 
 volumes:
   lucene-testcase-db-volume:
+  lucene-testcase-master-index-volume:
 
 services:
   lucene-testcase-db:
@@ -26,18 +27,22 @@ services:
       - lucene-testcase-db-volume:/var/lib/postgresql/data
     restart: "no"
 
-  lucene-testcase-app-1:
-    container_name: lucene-testcase-app-1
-    image: lucene-test-app:latest
+  lucene-testcase-master:
+    container_name: lucene-testcase-master
+    image: app-master:latest
     networks:
       lucene-testcase-net:
         ipv4_address: 172.24.0.20
+    volumes:
+      - lucene-testcase-master-index-volume:/mnt/master-index
     restart: "no"
 
-  lucene-testcase-app-2:
-    container_name: lucene-testcase-app-2
-    image: lucene-test-app:latest
+  lucene-testcase-slave:
+    container_name: lucene-testcase-slave
+    image: app-slave:latest
     networks:
       lucene-testcase-net:
         ipv4_address: 172.24.0.21
+    volumes:
+      - lucene-testcase-master-index-volume:/mnt/master-index
     restart: "no"

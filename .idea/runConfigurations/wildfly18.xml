@@ -24,7 +24,7 @@
         <option name="USE_DEFAULT" value="false" />
         <option name="SCRIPT" value="/opt/wildfly-18.0.1.Final/bin/standalone.sh" />
         <option name="VM_PARAMETERS" value="" />
-        <option name="PROGRAM_PARAMETERS" value="-server-config=standalone-ha.xml" />
+        <option name="PROGRAM_PARAMETERS" value="-server-config=standalone.xml" />
       </STARTUP>
       <SHUTDOWN>
         <option name="USE_DEFAULT" value="true" />

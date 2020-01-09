@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                        http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <persistence-unit name="jpa-unit" transaction-type="JTA">
+        <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
+        <class>ch.fuzzle.lucenetest.identity.Person</class>
+        <properties>
+            <property name="javax.persistence.schema-generation.database.action" value="none"/>
+            <property name="hibernate.search.default.directory_provider" value="filesystem-slave"/>
+            <property name="hibernate.search.default.sourceBase" value="/mnt/master-index"/>
+            <property name="hibernate.search.default.indexBase" value="/local-index"/>
+            <property name="hibernate.search.default.refresh" value="60"/>
+            <property name="hibernate.search.default.worker.backend" value="jgroupsSlave"/>
+            <property name="hibernate.search.error_handler" value="log"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
