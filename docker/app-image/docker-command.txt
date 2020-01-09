@@ -1,0 +1,4 @@
+## build ##
+docker build --rm --build-arg ARTIFACT_FILE=app-master.war --tag app-master .
+docker build --rm --build-arg ARTIFACT_FILE=app-slave.war --tag app-slave .
+

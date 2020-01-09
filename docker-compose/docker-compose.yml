@@ -1,21 +1,21 @@
 version: "3.7"
 
 networks:
-  lucene-testcase-net:
+  demo-net:
     ipam:
       config:
         - subnet: 172.24.0.0/24
 
 volumes:
-  lucene-testcase-db-volume:
-  lucene-testcase-master-index-volume:
+  demo-db-volume:
+  demo-master-index-volume:
 
 services:
-  lucene-testcase-db:
-    container_name: lucene-testcase-db
+  db:
+    container_name: db
     image: postgres:12.1-alpine
     networks:
-      lucene-testcase-net:
+      demo-net:
         ipv4_address: 172.24.0.10
     expose:
       - 5432
@@ -24,25 +24,30 @@ services:
       POSTGRES_USER: testcasedbuser
       POSTGRES_PASSWORD: testcasedbpassword
     volumes:
-      - lucene-testcase-db-volume:/var/lib/postgresql/data
+      - demo-db-volume:/var/lib/postgresql/data
     restart: "no"
 
-  lucene-testcase-master:
-    container_name: lucene-testcase-master
+  app-master:
+    container_name: app-master
     image: app-master:latest
     networks:
-      lucene-testcase-net:
+      demo-net:
         ipv4_address: 172.24.0.20
     volumes:
-      - lucene-testcase-master-index-volume:/mnt/master-index
+      - demo-master-index-volume:/mnt/master-index
     restart: "no"
+    depends_on:
+      - db
 
-  lucene-testcase-slave:
-    container_name: lucene-testcase-slave
+  app-slave:
+    container_name: app-slave
     image: app-slave:latest
     networks:
-      lucene-testcase-net:
+      demo-net:
         ipv4_address: 172.24.0.21
     volumes:
-      - lucene-testcase-master-index-volume:/mnt/master-index
+      - demo-master-index-volume:/mnt/master-index
     restart: "no"
+    depends_on:
+      - db
+      - app-master

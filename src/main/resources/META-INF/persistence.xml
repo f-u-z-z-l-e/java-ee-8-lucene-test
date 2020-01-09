@@ -12,7 +12,7 @@
             <property name="hibernate.search.default.directory_provider" value="${directory.provider}"/>
             <property name="hibernate.search.default.sourceBase" value="/mnt/master-index"/>
             <property name="hibernate.search.default.indexBase" value="/local-index"/>
-            <property name="hibernate.search.default.refresh" value="60"/>
+            <property name="hibernate.search.default.refresh" value="10"/>
             <property name="hibernate.search.default.worker.backend" value="${worker.backend}"/>
             <property name="hibernate.search.error_handler" value="log"/>
             <property name="hibernate.show_sql" value="true"/>

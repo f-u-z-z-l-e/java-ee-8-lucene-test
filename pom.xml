@@ -84,9 +84,8 @@
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
-
                         <configuration>
-                            <outputDirectory>${basedir}/docker/app-${build.profile.id}-image</outputDirectory>
+                            <outputDirectory>${basedir}/docker/app-image</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${build.directory}</directory>
